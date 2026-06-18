@@ -1,0 +1,8 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="800" fill="#EEF8FC"/>
+<rect x="90" y="90" width="1020" height="620" rx="48" fill="white" stroke="#CDEAF6" stroke-width="4"/>
+<path d="M660 188C520 296 456 404 456 512C456 620 534 688 632 688C740 688 812 610 812 512C812 420 752 340 660 188Z" fill="#1687C9" fill-opacity="0.18"/>
+<path d="M670 260C598 356 568 424 578 496C588 558 636 604 700 604C760 604 806 558 806 496C806 424 758 358 670 260Z" fill="#20B7E5" fill-opacity="0.22"/>
+<text x="600" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="54" font-weight="800" fill="#071B35">HUACHENG</text>
+<text x="600" y="424" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="8" fill="#1687C9">BUILDING MATERIALS</text>
+</svg>
