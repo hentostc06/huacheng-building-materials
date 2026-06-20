@@ -19,11 +19,20 @@ class ProductCategoryResource extends Resource
 {
     protected static ?string $model = ProductCategory::class;
 
+    protected static string | \UnitEnum | null $navigationGroup = 'Katalog Produk';
+
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-squares-2x2';
+
+    protected static ?int $navigationSort = 10;
+
     protected static ?string $navigationLabel = 'Kategori Produk';
 
     protected static ?string $modelLabel = 'Kategori Produk';
 
     protected static ?string $pluralModelLabel = 'Kategori Produk';
+
+
+
 
     public static function form(Schema $schema): Schema
     {

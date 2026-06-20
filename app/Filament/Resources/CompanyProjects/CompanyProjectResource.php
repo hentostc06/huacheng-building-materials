@@ -24,11 +24,20 @@ class CompanyProjectResource extends Resource
 {
     protected static ?string $model = CompanyProject::class;
 
+    protected static string | \UnitEnum | null $navigationGroup = 'Konten Website';
+
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-briefcase';
+
+    protected static ?int $navigationSort = 20;
+
     protected static ?string $navigationLabel = 'Proyek Dikerjakan';
 
     protected static ?string $modelLabel = 'Proyek Dikerjakan';
 
     protected static ?string $pluralModelLabel = 'Proyek Dikerjakan';
+
+
+
 
     public static function form(Schema $schema): Schema
     {

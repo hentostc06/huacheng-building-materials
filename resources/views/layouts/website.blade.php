@@ -384,6 +384,94 @@
             }
         }
 
+    
+        /* Huacheng clean button: no icon, no svg, hover slide */
+        .button,
+        .hc-slide-button {
+            position: relative !important;
+            isolation: isolate !important;
+            overflow: hidden !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 0 !important;
+            min-height: 42px !important;
+            min-width: 104px !important;
+            padding: 0 22px !important;
+            border-radius: 9999px !important;
+            border: 1px solid rgba(46, 167, 224, 0.18) !important;
+            background: #2EA7E0 !important;
+            color: #ffffff !important;
+            font-size: 14px !important;
+            font-weight: 800 !important;
+            line-height: 1 !important;
+            text-decoration: none !important;
+            white-space: nowrap !important;
+            box-shadow: 0 12px 28px rgba(46, 167, 224, 0.22) !important;
+            transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease, color .22s ease !important;
+        }
+
+        .button::before,
+        .hc-slide-button::before {
+            content: "" !important;
+            position: absolute !important;
+            inset: 0 !important;
+            z-index: -1 !important;
+            background: linear-gradient(90deg, #1B8DC2 0%, #38BDF8 100%) !important;
+            transform: translateX(-102%) !important;
+            transition: transform .35s ease !important;
+        }
+
+        .button:hover::before,
+        .hc-slide-button:hover::before {
+            transform: translateX(0) !important;
+        }
+
+        .button:hover,
+        .hc-slide-button:hover {
+            transform: translateY(-2px) !important;
+            color: #ffffff !important;
+            border-color: rgba(46, 167, 224, 0.45) !important;
+            box-shadow: 0 18px 38px rgba(46, 167, 224, 0.32) !important;
+        }
+
+        .button:active,
+        .hc-slide-button:active {
+            transform: translateY(0) scale(.98) !important;
+        }
+
+        .button-sm {
+            min-height: 40px !important;
+            min-width: 96px !important;
+            padding: 0 18px !important;
+            font-size: 13px !important;
+        }
+
+        .button svg,
+        .button .svgIcon,
+        .hc-slide-button svg,
+        .hc-slide-button .svgIcon {
+            display: none !important;
+        }
+
+        .button span,
+        .hc-slide-button span {
+            position: relative !important;
+            z-index: 1 !important;
+        }
+
+        @media (max-width: 640px) {
+            .button,
+            .hc-slide-button {
+                width: auto !important;
+                max-width: 100% !important;
+                min-height: 42px !important;
+                padding-left: 18px !important;
+                padding-right: 18px !important;
+                font-size: 13px !important;
+            }
+        }
+
     </style>
 
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -474,126 +562,54 @@
             });
         });
     </script>
+<link rel="icon" type="image/png" href="{{ asset('favicon.png') }}?v=2">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}?v=2">
+    <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}?v=2">
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const iconMap = {
-                produk: `
-                    <svg class="svgIcon" viewBox="0 0 24 24" fill="none">
-                        <path d="M4 7.5 12 3l8 4.5-8 4.5L4 7.5Z" stroke-width="2" stroke-linejoin="round"/>
-                        <path d="M4 12.5 12 17l8-4.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M4 17.5 12 22l8-4.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                `,
-                sales: `
-                    <svg class="svgIcon" viewBox="0 0 24 24" fill="none">
-                        <path d="M7 8h10M7 12h7M5 20l3-3h9a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7a3 3 0 0 0 3 3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                `,
-                whatsapp: `
-                    <svg class="svgIcon" viewBox="0 0 24 24" fill="none">
-                        <path d="M7.5 19.5 4 20.5l1-3.4A8 8 0 1 1 7.5 19.5Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M9 8.5c.3 3.4 2.1 5.4 5.5 6 .5.1 1-.2 1.2-.7l.4-.9c.2-.5 0-1-.5-1.2l-1.2-.5c-.4-.2-.9-.1-1.2.3l-.3.4c-.9-.4-1.6-1.1-2-2l.4-.3c.4-.3.5-.8.3-1.2l-.5-1.2c-.2-.5-.8-.7-1.2-.5l-.9.4c-.6.2-.9.7-.8 1.3Z" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                `,
-                filter: `
-                    <svg class="svgIcon" viewBox="0 0 24 24" fill="none">
-                        <path d="M4 5h16l-6 7v5l-4 2v-7L4 5Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                `,
-                detail: `
-                    <svg class="svgIcon" viewBox="0 0 24 24" fill="none">
-                        <path d="M5 12h14" stroke-width="2" stroke-linecap="round"/>
-                        <path d="m13 6 6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                `,
-                admin: `
-                    <svg class="svgIcon" viewBox="0 0 24 24" fill="none">
-                        <path d="M7 10V8a5 5 0 0 1 10 0v2" stroke-width="2" stroke-linecap="round"/>
-                        <rect x="5" y="10" width="14" height="10" rx="2" stroke-width="2"/>
-                        <path d="M12 14v2" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                `
-            };
-
-            function pickIcon(label) {
-                const text = label.toLowerCase();
-
-                if (text.includes('admin')) return iconMap.admin;
-                if (text.includes('filter')) return iconMap.filter;
-                if (text.includes('whatsapp') || text.includes('chat')) return iconMap.whatsapp;
-                if (text.includes('sales') || text.includes('kontak') || text.includes('hubungi')) return iconMap.sales;
-                if (text.includes('detail')) return iconMap.detail;
-                if (text.includes('produk')) return iconMap.produk;
-
-                return iconMap.detail;
-            }
-
-            function cleanLabel(label) {
-                return label.replace('→', '').trim();
-            }
-
-            const buttonTexts = [
+            const buttonLabels = [
+                'Detail',
+                'Lihat Detail',
                 'Lihat Produk',
                 'Hubungi Sales',
                 'Hubungi WhatsApp',
-                'WhatsApp',
                 'Buka Halaman Produk',
                 'Filter',
                 'Tanya Produk via WhatsApp',
                 'Kontak Sales',
                 'Chat WhatsApp',
-                'Lihat Detail'
+                'Simpan',
+                'Save',
+                'Submit'
             ];
 
             document.querySelectorAll('a, button').forEach(function (element) {
+                if (element.closest('.floating-wa')) {
+                    return;
+                }
+
                 const rawText = element.textContent.trim().replace(/\s+/g, ' ');
-                const matched = buttonTexts.some(function (buttonText) {
-                    return rawText === buttonText;
+                const cleanText = rawText.replace(/[→›»]/g, '').trim();
+
+                if (!buttonLabels.includes(cleanText)) {
+                    return;
+                }
+
+                element.querySelectorAll('svg, .svgIcon').forEach(function (icon) {
+                    icon.remove();
                 });
 
-                if (!matched) {
-                    return;
-                }
-
-                if (element.dataset.hcButtonReady === '1') {
-                    return;
-                }
-
-                const label = cleanLabel(rawText);
-
-                element.classList.add('button');
-
-                if (label.length <= 8) {
-                    element.classList.add('button-sm');
-                }
-
-                element.innerHTML = pickIcon(label) + `<span>${label}</span>`;
-                element.dataset.hcButtonReady = '1';
-            });
-
-            document.querySelectorAll('span').forEach(function (element) {
-                const rawText = element.textContent.trim().replace(/\s+/g, ' ');
-
-                if (rawText !== 'Lihat Detail →' && rawText !== 'Lihat Detail') {
-                    return;
-                }
-
-                if (element.dataset.hcButtonReady === '1') {
-                    return;
-                }
-
-                element.classList.add('button', 'button-sm');
-                element.innerHTML = iconMap.detail + '<span>Lihat Detail</span>';
+                element.innerHTML = '<span>' + cleanText + '</span>';
+                element.classList.add('hc-slide-button');
                 element.dataset.hcButtonReady = '1';
             });
         });
     </script>
-    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}?v=2">
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}?v=2">
-    <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}?v=2">
+
 </head>
 <body class="bg-white text-hc-text antialiased">
+    @include('partials.huacheng-loader')
     <div class="min-h-screen">
         <header x-data="{ open: false }" class="sticky top-0 z-50 border-b border-hc-line bg-white/95 backdrop-blur">
             <div class="hc-container flex items-center justify-between py-4">

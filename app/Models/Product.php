@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class Product extends Model
@@ -312,13 +313,41 @@ class Product extends Model
 
     public function getImageUrlAttribute(): string
     {
-        if ($this->image) {
-            return str_starts_with($this->image, 'http')
-                ? $this->image
-                : asset('storage/' . $this->image);
+        return $this->resolvePublicFileUrl($this->image);
+    }
+
+    public function getGalleryUrlsAttribute(): array
+    {
+        return collect($this->gallery ?? [])
+            ->filter()
+            ->map(fn ($path) => $this->resolvePublicFileUrl((string) $path))
+            ->values()
+            ->all();
+    }
+
+    private function resolvePublicFileUrl(?string $path): string
+    {
+        if (! $path) {
+            return asset('images/product-placeholder.svg');
         }
 
-        return asset('images/product-placeholder.svg');
+        $file = ltrim((string) $path, '/');
+
+        if (str_starts_with($file, 'http://') || str_starts_with($file, 'https://')) {
+            return $file;
+        }
+
+        if (str_starts_with($file, 'storage/')) {
+            return asset($file);
+        }
+
+        if (str_starts_with($file, 'public/')) {
+            $file = str_replace('public/', '', $file);
+        }
+
+        return Storage::disk('public')->exists($file)
+            ? Storage::disk('public')->url($file)
+            : asset('storage/' . $file);
     }
 
     public function category(): BelongsTo

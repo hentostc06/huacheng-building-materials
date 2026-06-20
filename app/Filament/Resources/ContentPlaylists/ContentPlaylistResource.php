@@ -24,11 +24,20 @@ class ContentPlaylistResource extends Resource
 {
     protected static ?string $model = ContentPlaylist::class;
 
+    protected static string | \UnitEnum | null $navigationGroup = 'Konten Website';
+
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-play-circle';
+
+    protected static ?int $navigationSort = 30;
+
     protected static ?string $navigationLabel = 'Playlist Konten';
 
     protected static ?string $modelLabel = 'Playlist Konten';
 
     protected static ?string $pluralModelLabel = 'Playlist Konten';
+
+
+
 
     public static function form(Schema $schema): Schema
     {
@@ -57,6 +66,7 @@ class ContentPlaylistResource extends Resource
 
                 FileUpload::make('thumbnail')
                     ->label('Thumbnail')
+                    ->helperText('Jika thumbnail tidak diisi, sistem otomatis mengambil thumbnail dari konten YouTube berdasarkan URL konten.')
                     ->image()
                     ->disk('public')
                     ->directory('content-playlists')

@@ -29,9 +29,7 @@
                 background-color: oklch(0.145 0 0);
             }
         </style>
-@fonts
-
-        @vite(['resources/css/app.css', 'resources/js/app.ts', "resources/js/pages/{$page['component']}.vue"])
+@vite(['resources/css/app.css', 'resources/js/app.ts', "resources/js/pages/{$page['component']}.vue"])
         <x-inertia::head>
             <title>{{ config('app.name', 'Laravel') }}</title>
         </x-inertia::head>
@@ -40,6 +38,7 @@
     <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}?v=2">
 </head>
     <body class="font-sans antialiased">
+    @include('partials.huacheng-loader')
         <x-inertia::app />
     </body>
 </html>

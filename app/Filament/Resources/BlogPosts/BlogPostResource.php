@@ -24,11 +24,20 @@ class BlogPostResource extends Resource
 {
     protected static ?string $model = BlogPost::class;
 
+    protected static string | \UnitEnum | null $navigationGroup = 'Konten Website';
+
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
+
+    protected static ?int $navigationSort = 10;
+
     protected static ?string $navigationLabel = 'Blog Perusahaan';
 
     protected static ?string $modelLabel = 'Blog Perusahaan';
 
     protected static ?string $pluralModelLabel = 'Blog Perusahaan';
+
+
+
 
     public static function form(Schema $schema): Schema
     {

@@ -6,6 +6,7 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\NavigationGroup;
 use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -26,15 +27,27 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
-            ->favicon(asset('favicon.png') . '?v=5')
-            ->brandName('Huacheng Building Materials')
-            ->renderHook(
-                'panels::topbar.end',
-                fn (): string => view('filament.admin-topbar-account')->render()
-            )
+            ->brandName('Huacheng Admin')
+            ->brandLogo(asset('images/Logo.png'))
+            ->brandLogoHeight('2.75rem')
+            ->favicon(asset('favicon.png'))
             ->colors([
                 'primary' => Color::Sky,
             ])
+            ->navigationGroups([
+                NavigationGroup::make('Landing Page')
+                    ->collapsible(false),
+
+                NavigationGroup::make('Konten Website')
+                    ->collapsible(false),
+
+                NavigationGroup::make('Katalog Produk')
+                    ->collapsible(false),
+            ])
+            ->renderHook(
+                'panels::body.start',
+                fn (): string => view('partials.huacheng-loader')->render()
+            )
             ->discoverResources(
                 in: app_path('Filament/Resources'),
                 for: 'App\\Filament\\Resources'

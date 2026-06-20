@@ -2,14 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ContentPlaylist extends Model
 {
-    use HasFactory;
-
     protected $fillable = [
         'title',
         'title_zh',
@@ -27,39 +24,47 @@ class ContentPlaylist extends Model
         'sort_order' => 'integer',
     ];
 
-    public function getDisplayTitleAttribute(): string
-    {
-        return $this->title_zh
-            ? $this->title . ' / ' . $this->title_zh
-            : $this->title;
-    }
-
     public function getThumbnailUrlAttribute(): string
     {
-        if (! $this->thumbnail) {
-            return asset('images/product-placeholder.svg');
+        if ($this->thumbnail) {
+            $thumbnail = ltrim((string) $this->thumbnail, '/');
+
+            if (Str::startsWith($thumbnail, ['http://', 'https://'])) {
+                return $thumbnail;
+            }
+
+            if (Str::startsWith($thumbnail, 'storage/')) {
+                return asset($thumbnail);
+            }
+
+            if (Str::startsWith($thumbnail, 'public/')) {
+                $thumbnail = str_replace('public/', '', $thumbnail);
+            }
+
+            return asset('storage/' . $thumbnail);
         }
 
-        $thumbnail = ltrim((string) $this->thumbnail, '/');
+        $youtubeId = $this->youtubeId();
 
-        if (str_starts_with($thumbnail, 'http://') || str_starts_with($thumbnail, 'https://')) {
-            return $thumbnail;
+        if ($youtubeId) {
+            return 'https://img.youtube.com/vi/' . $youtubeId . '/hqdefault.jpg';
         }
 
-        if (str_starts_with($thumbnail, 'storage/')) {
-            return asset($thumbnail);
-        }
-
-        if (str_starts_with($thumbnail, 'public/')) {
-            $thumbnail = str_replace('public/', '', $thumbnail);
-        }
-
-        return Storage::disk('public')->exists($thumbnail)
-            ? Storage::disk('public')->url($thumbnail)
-            : asset('storage/' . $thumbnail);
+        return asset('images/Logo.png');
     }
 
     public function getEmbedUrlAttribute(): ?string
+    {
+        $youtubeId = $this->youtubeId();
+
+        if ($youtubeId) {
+            return 'https://www.youtube.com/embed/' . $youtubeId;
+        }
+
+        return null;
+    }
+
+    public function youtubeId(): ?string
     {
         $url = trim((string) $this->url);
 
@@ -67,25 +72,17 @@ class ContentPlaylist extends Model
             return null;
         }
 
-        if (str_contains($url, 'youtube.com/watch')) {
-            parse_str(parse_url($url, PHP_URL_QUERY) ?? '', $query);
+        $patterns = [
+            '/youtube\.com\/watch\?v=([^&]+)/',
+            '/youtube\.com\/shorts\/([^?&]+)/',
+            '/youtube\.com\/embed\/([^?&]+)/',
+            '/youtu\.be\/([^?&]+)/',
+        ];
 
-            return isset($query['v'])
-                ? 'https://www.youtube.com/embed/' . $query['v']
-                : null;
-        }
-
-        if (str_contains($url, 'youtu.be/')) {
-            $id = trim(parse_url($url, PHP_URL_PATH) ?? '', '/');
-
-            return $id ? 'https://www.youtube.com/embed/' . $id : null;
-        }
-
-        if (str_contains($url, 'youtube.com/shorts/')) {
-            $path = trim(parse_url($url, PHP_URL_PATH) ?? '', '/');
-            $id = str_replace('shorts/', '', $path);
-
-            return $id ? 'https://www.youtube.com/embed/' . $id : null;
+        foreach ($patterns as $pattern) {
+            if (preg_match($pattern, $url, $matches)) {
+                return $matches[1] ?? null;
+            }
         }
 
         return null;

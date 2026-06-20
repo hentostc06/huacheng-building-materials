@@ -8,4 +8,10 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateCompanyProject extends CreateRecord
 {
     protected static string $resource = CompanyProjectResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->previousUrl ?? $this->getResource()::getUrl('index');
+    }
+
 }

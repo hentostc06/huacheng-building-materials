@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\BlogPosts\Pages;
+namespace App\Filament\Resources\HeroSlides\Pages;
 
-use App\Filament\Resources\BlogPosts\BlogPostResource;
+use App\Filament\Resources\HeroSlides\HeroSlideResource;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-class EditBlogPost extends EditRecord
+class EditHeroSlide extends EditRecord
 {
-    protected static string $resource = BlogPostResource::class;
+    protected static string $resource = HeroSlideResource::class;
 
     protected function getHeaderActions(): array
     {
@@ -21,5 +21,4 @@ class EditBlogPost extends EditRecord
     {
         return $this->previousUrl ?? $this->getResource()::getUrl('index');
     }
-
 }

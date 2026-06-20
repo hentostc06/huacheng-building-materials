@@ -101,11 +101,7 @@
                                 </div>
 
                                 <a href="{{ route('products.show', $product) }}" class="button button-sm">
-                                    <svg class="svgIcon" viewBox="0 0 24 24" fill="none">
-                                        <path d="M5 12h14" stroke-width="2" stroke-linecap="round"/>
-                                        <path d="m13 6 6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    <span>Detail</span>
+<span>Detail</span>
                                 </a>
                             </div>
                         </div>
