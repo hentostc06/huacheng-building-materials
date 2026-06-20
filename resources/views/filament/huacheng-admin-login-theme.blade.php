@@ -452,6 +452,89 @@
         }
     }
 
+
+    /* FIX LOGIN FORM LABEL VISIBILITY - HUACHENG */
+    html.hc-admin-login-page label,
+    html.hc-admin-login-page label span,
+    html.hc-admin-login-page .fi-fo-field-wrp-label,
+    html.hc-admin-login-page .fi-fo-field-wrp-label span,
+    html.hc-admin-login-page .fi-fo-field-wrp-label .fi-fo-field-wrp-label-text,
+    html.hc-admin-login-page .fi-checkbox-list-option-label,
+    html.hc-admin-login-page .fi-checkbox-list-option-label span,
+    html.hc-admin-login-page .fi-checkbox-input + span,
+    html.hc-admin-login-page .fi-fieldset legend,
+    html.hc-admin-login-page .fi-input-wrp-label,
+    html.hc-admin-login-page .fi-input-wrp-label span {
+        color: #334155 !important;
+        opacity: 1 !important;
+        font-weight: 800 !important;
+    }
+
+    html.hc-admin-login-page .fi-fo-field-wrp-label .text-danger-600,
+    html.hc-admin-login-page .fi-fo-field-wrp-label .text-danger-500,
+    html.hc-admin-login-page label .text-danger-600,
+    html.hc-admin-login-page label .text-danger-500 {
+        color: #ef4444 !important;
+        opacity: 1 !important;
+    }
+
+    html.hc-admin-login-page input[type="checkbox"],
+    html.hc-admin-login-page .fi-checkbox-input {
+        width: 18px !important;
+        height: 18px !important;
+        border: 1px solid rgba(100, 116, 139, .45) !important;
+        background-color: #ffffff !important;
+        color: #2EA7E0 !important;
+        opacity: 1 !important;
+        box-shadow: none !important;
+    }
+
+    html.hc-admin-login-page input[type="checkbox"]:checked,
+    html.hc-admin-login-page .fi-checkbox-input:checked {
+        background-color: #2EA7E0 !important;
+        border-color: #2EA7E0 !important;
+    }
+
+    html.hc-admin-login-page input,
+    html.hc-admin-login-page .fi-input {
+        color: #0f172a !important;
+        opacity: 1 !important;
+    }
+
+    html.hc-admin-login-page input::placeholder {
+        color: #94a3b8 !important;
+        opacity: 1 !important;
+    }
+
+
+    /* FIX REMEMBER ME CHECKBOX SIZE - HUACHENG */
+    html.hc-admin-login-page input[type="checkbox"],
+    html.hc-admin-login-page .fi-checkbox-input {
+        width: 18px !important;
+        min-width: 18px !important;
+        max-width: 18px !important;
+        height: 18px !important;
+        min-height: 18px !important;
+        max-height: 18px !important;
+        padding: 0 !important;
+        border-radius: 6px !important;
+        border: 1px solid rgba(100, 116, 139, .45) !important;
+        background-color: #ffffff !important;
+        box-shadow: none !important;
+        flex-shrink: 0 !important;
+    }
+
+    html.hc-admin-login-page input[type="checkbox"]:checked,
+    html.hc-admin-login-page .fi-checkbox-input:checked {
+        background-color: #2EA7E0 !important;
+        border-color: #2EA7E0 !important;
+    }
+
+    html.hc-admin-login-page input[type="checkbox"]:focus,
+    html.hc-admin-login-page .fi-checkbox-input:focus {
+        box-shadow: 0 0 0 4px rgba(46, 167, 224, .14) !important;
+    }
+
 </style>
 
 <script>
