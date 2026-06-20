@@ -92,18 +92,18 @@
         height: 52px;
         margin-top: 26px;
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         justify-content: center;
         gap: 7px;
     }
 
     .hc-page-loader__spectrum span {
         width: 8px;
-        height: 18px;
-        border-radius: 999px;
+        height: 34px;
+        border-radius: 999px 999px 4px 4px;
         background: linear-gradient(180deg, #7dd3fc 0%, #2ea7e0 50%, #1b8dc2 100%);
         box-shadow: 0 10px 22px rgba(46, 167, 224, .22);
-        transform-origin: center;
+        transform-origin: bottom center;
         animation: hcSpectrum 1s ease-in-out infinite;
         animation-delay: calc(var(--i) * .08s);
     }
@@ -136,21 +136,18 @@
 
     @keyframes hcSpectrum {
         0%, 100% {
-            height: 16px;
-            opacity: .55;
-            transform: translateY(0) scaleY(.9);
+            transform: scaleY(.42);
+            opacity: .58;
         }
 
         35% {
-            height: 48px;
+            transform: scaleY(1);
             opacity: 1;
-            transform: translateY(-4px) scaleY(1);
         }
 
         65% {
-            height: 26px;
+            transform: scaleY(.64);
             opacity: .82;
-            transform: translateY(3px) scaleY(.95);
         }
     }
 

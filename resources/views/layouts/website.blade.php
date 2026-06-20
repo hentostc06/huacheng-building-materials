@@ -472,6 +472,286 @@
             }
         }
 
+    
+        /* Huacheng uniform card media: samakan semua bingkai gambar seperti Playlist Konten */
+        .hc-uniform-card-media {
+            width: 100% !important;
+            height: 220px !important;
+            overflow: hidden !important;
+            position: relative !important;
+            border-bottom: 1px solid #D8ECF8 !important;
+            background: #F9FCFE !important;
+        }
+
+        .hc-uniform-card-media img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            display: block !important;
+        }
+
+        .hc-uniform-card-media > div {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .hc-uniform-card {
+            height: 100% !important;
+            display: flex !important;
+            flex-direction: column !important;
+        }
+
+        .hc-uniform-card-body {
+            flex: 1 1 auto !important;
+        }
+
+        @media (max-width: 640px) {
+            .hc-uniform-card-media {
+                height: 190px !important;
+            }
+        }
+
+    
+        /* Product mobile clean view */
+        .hc-product-image-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 35% 25%, rgba(46, 167, 224, .10), transparent 34%),
+                linear-gradient(135deg, #f8fcff 0%, #eef8ff 100%);
+        }
+
+        .hc-product-image {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+            transition: transform .5s ease;
+        }
+
+        .hc-card:hover .hc-product-image {
+            transform: scale(1.04);
+        }
+
+        @media (max-width: 640px) {
+            .hc-product-grid {
+                gap: 18px !important;
+            }
+
+            .hc-product-image-wrap {
+                aspect-ratio: 16 / 10;
+                border-bottom: 1px solid #D8ECF8;
+            }
+
+            .hc-product-image {
+                object-fit: cover;
+                object-position: center;
+                padding: 0;
+                background: #f8fcff;
+            }
+
+            .hc-card {
+                border-radius: 24px !important;
+            }
+
+            .hc-mobile-full {
+                width: 100% !important;
+            }
+
+            .hc-mobile-full.button,
+            button.hc-mobile-full {
+                justify-content: center !important;
+            }
+        }
+
+    
+        @media (max-width: 640px) {
+            .hc-product-image-wrap {
+                aspect-ratio: 16 / 10 !important;
+                overflow: hidden !important;
+                background: #f8fcff !important;
+            }
+
+            .hc-product-image-wrap .hc-product-image {
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
+                object-position: center !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+        }
+
+    
+        /* MOBILE HERO RESPONSIVE ONLY - HUACHENG */
+        @media (max-width: 640px) {
+            html,
+            body {
+                overflow-x: hidden !important;
+            }
+
+            #hero {
+                min-height: 620px !important;
+                max-width: 100vw !important;
+                overflow: hidden !important;
+            }
+
+            #hero .hc-container {
+                min-height: 620px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                padding-top: 48px !important;
+                padding-bottom: 74px !important;
+                padding-left: 18px !important;
+                padding-right: 18px !important;
+                align-items: flex-start !important;
+                justify-content: center !important;
+            }
+
+            #hero .hc-container > div {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding-top: 20px !important;
+            }
+
+            #hero .absolute.inset-0.-z-20 img {
+                object-position: center center !important;
+            }
+
+            #hero .absolute.inset-0.-z-10.bg-gradient-to-r {
+                background: linear-gradient(
+                    to right,
+                    rgba(255, 255, 255, .94) 0%,
+                    rgba(255, 255, 255, .82) 54%,
+                    rgba(255, 255, 255, .34) 100%
+                ) !important;
+            }
+
+            #hero .absolute.inset-0.-z-10.bg-gradient-to-b {
+                background: linear-gradient(
+                    to bottom,
+                    rgba(255, 255, 255, .12) 0%,
+                    rgba(255, 255, 255, .18) 48%,
+                    rgba(255, 255, 255, .96) 100%
+                ) !important;
+            }
+
+            #hero .inline-flex.max-w-full {
+                max-width: calc(100vw - 36px) !important;
+                padding: 7px 12px !important;
+                font-size: 10px !important;
+                line-height: 1.2 !important;
+            }
+
+            #hero h1 {
+                margin-top: 22px !important;
+                max-width: 92vw !important;
+                font-size: 34px !important;
+                line-height: 1.08 !important;
+                letter-spacing: -0.045em !important;
+            }
+
+            #hero h2 {
+                margin-top: 16px !important;
+                max-width: 92vw !important;
+                font-size: 20px !important;
+                line-height: 1.25 !important;
+            }
+
+            #hero p {
+                max-width: 92vw !important;
+                font-size: 13.5px !important;
+                line-height: 1.75 !important;
+            }
+
+            #hero .mt-6 {
+                margin-top: 16px !important;
+            }
+
+            #hero .mt-9 {
+                margin-top: 24px !important;
+            }
+
+            #hero a[data-hc-button-ready="1"] {
+                width: 100% !important;
+                max-width: 100% !important;
+                height: 44px !important;
+                min-height: 44px !important;
+                font-size: 12.5px !important;
+                border-radius: 999px !important;
+            }
+        }
+
+        @media (max-width: 380px) {
+            #hero h1 {
+                font-size: 30px !important;
+                line-height: 1.1 !important;
+            }
+
+            #hero h2 {
+                font-size: 18px !important;
+            }
+
+            #hero p {
+                font-size: 13px !important;
+                line-height: 1.7 !important;
+            }
+
+            #hero .hc-container {
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+            }
+        }
+        /* END MOBILE HERO RESPONSIVE ONLY - HUACHENG */
+
+    
+        /* SMART HEADER ALL DEVICES - HUACHENG */
+        body.hc-smart-header-ready {
+            padding-top: var(--hc-header-height, 78px) !important;
+        }
+
+        .hc-smart-header {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            z-index: 99990 !important;
+            width: 100% !important;
+            transform: translateY(0) !important;
+            transition:
+                transform .28s ease,
+                box-shadow .28s ease,
+                background-color .28s ease,
+                backdrop-filter .28s ease !important;
+            will-change: transform !important;
+            background: rgba(255, 255, 255, .94) !important;
+            backdrop-filter: blur(18px) !important;
+            box-shadow: 0 10px 28px rgba(15, 23, 42, .08) !important;
+        }
+
+        .hc-smart-header.is-hidden {
+            transform: translateY(-105%) !important;
+            box-shadow: none !important;
+        }
+
+        .hc-smart-header.is-visible {
+            transform: translateY(0) !important;
+        }
+
+        @media (max-width: 768px) {
+            body.hc-smart-header-ready {
+                padding-top: var(--hc-header-height, 72px) !important;
+            }
+
+            .hc-smart-header {
+                background: rgba(255, 255, 255, .96) !important;
+            }
+        }
+        /* END SMART HEADER ALL DEVICES - HUACHENG */
+
     </style>
 
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -690,8 +970,8 @@
                         <p>General Manager: Chen Xiao Li</p>
                         <p>陈萧丽</p>
                         <p>Telepon: 135 7551 4666</p>
-                        <p>WhatsApp: 08211660798</p>
-                        <p>Domain: huacheng.modular.co.id</p>
+                        <p>WhatsApp: +62 821 1660 798</p>
+                        <p>Domain: huacheng.co.id</p>
                     </div>
                 </div>
             </div>
@@ -731,6 +1011,115 @@
             document.body.appendChild(button);
         });
     </script>
+
+
+
+
+<!-- SMART HEADER SCRIPT - HUACHENG -->
+<script>
+    (function () {
+        let lastScrollY = window.scrollY || 0;
+        let ticking = false;
+        let header = null;
+
+        function findHeader() {
+            return document.querySelector('header')
+                || document.querySelector('.site-header')
+                || document.querySelector('.hc-header')
+                || document.querySelector('nav');
+        }
+
+        function setHeaderHeight() {
+            if (!header) {
+                return;
+            }
+
+            const height = header.offsetHeight || 78;
+            document.documentElement.style.setProperty('--hc-header-height', height + 'px');
+        }
+
+        function showHeader() {
+            if (!header) {
+                return;
+            }
+
+            header.classList.remove('is-hidden');
+            header.classList.add('is-visible');
+        }
+
+        function hideHeader() {
+            if (!header) {
+                return;
+            }
+
+            header.classList.remove('is-visible');
+            header.classList.add('is-hidden');
+        }
+
+        function setupSmartHeader() {
+            header = findHeader();
+
+            if (!header) {
+                return;
+            }
+
+            header.classList.add('hc-smart-header');
+            document.body.classList.add('hc-smart-header-ready');
+
+            setHeaderHeight();
+            showHeader();
+        }
+
+        function handleScroll() {
+            if (!header) {
+                ticking = false;
+                return;
+            }
+
+            const currentScrollY = window.scrollY || 0;
+            const diff = currentScrollY - lastScrollY;
+
+            if (currentScrollY <= 20) {
+                showHeader();
+                lastScrollY = currentScrollY;
+                ticking = false;
+                return;
+            }
+
+            if (diff > 8) {
+                hideHeader();
+            }
+
+            if (diff < -4) {
+                showHeader();
+            }
+
+            lastScrollY = currentScrollY;
+            ticking = false;
+        }
+
+        function requestScrollUpdate() {
+            if (!ticking) {
+                window.requestAnimationFrame(handleScroll);
+                ticking = true;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', setupSmartHeader);
+        window.addEventListener('resize', setupSmartHeader);
+        window.addEventListener('orientationchange', setupSmartHeader);
+        window.addEventListener('scroll', requestScrollUpdate, { passive: true });
+
+        document.addEventListener('livewire:navigated', function () {
+            setupSmartHeader();
+            showHeader();
+        });
+
+        setTimeout(setupSmartHeader, 300);
+        setTimeout(setupSmartHeader, 900);
+    })();
+</script>
+<!-- END SMART HEADER SCRIPT - HUACHENG -->
 
 </body>
 </html>

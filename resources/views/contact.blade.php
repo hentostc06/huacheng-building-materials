@@ -28,7 +28,7 @@
 
         <div class="rounded-3xl border border-hc-line bg-white p-8 shadow-sm">
             <p class="text-sm font-bold uppercase tracking-[0.18em] text-hc-primary">WhatsApp</p>
-            <h2 class="mt-3 text-2xl font-bold text-hc-text">08211660798</h2>
+            <h2 class="mt-3 text-2xl font-bold text-hc-text">+62 821 1660 7988</h2>
             <a href="https://wa.me/628211660798?text={{ urlencode('Halo, apakah boleh menanyakan soal produk-produknya?') }}" class="mt-5 inline-flex rounded-full bg-hc-primary px-6 py-3 text-sm font-bold text-white transition hover:bg-hc-primaryDark">
                 Chat WhatsApp
             </a>

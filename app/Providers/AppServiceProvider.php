@@ -6,6 +6,7 @@ use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
+use Filament\Forms\Components\FileUpload;
 use Illuminate\Validation\Rules\Password;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        FileUpload::configureUsing(function (FileUpload $component): void {
+            $component
+                ->deletable(true)
+                ->downloadable(true)
+                ->openable(true)
+                ->imagePreviewHeight('240');
+        });
+
         $this->configureDefaults();
     }
 

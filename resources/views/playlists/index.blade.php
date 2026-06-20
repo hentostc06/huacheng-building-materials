@@ -18,7 +18,7 @@
                 @foreach($playlists as $playlist)
                     <article class="overflow-hidden rounded-[2rem] border border-hc-line bg-white shadow-sm">
                         @if($playlist->embed_url)
-                            <div class="aspect-video bg-black">
+                            <div class="hc-uniform-card-media">
                                 <iframe
                                     src="{{ $playlist->embed_url }}"
                                     title="{{ $playlist->title }}"
@@ -28,13 +28,13 @@
                             </div>
                         @else
                             <a href="{{ $playlist->url }}" target="_blank" rel="noopener noreferrer" class="block">
-                                <div class="aspect-video bg-hc-bg">
+                                <div class="hc-uniform-card-media">
                                     <img src="{{ $playlist->thumbnail_url }}" alt="{{ $playlist->title }}" class="h-full w-full object-cover">
                                 </div>
                             </a>
                         @endif
 
-                        <div class="p-6">
+                        <div class="hc-uniform-card-body p-6">
                             @if($playlist->platform)
                                 <p class="text-xs font-bold uppercase tracking-[0.18em] text-hc-primary">{{ $playlist->platform }}</p>
                             @endif

@@ -1,30 +1,35 @@
-@if(($playlists ?? collect())->isNotEmpty())
+@php
+    $playlistItems = $playlists ?? collect();
+    $visiblePlaylists = $playlistItems->take(3);
+    $hasMorePlaylists = $playlistItems->count() > 3;
+@endphp
+
+@if($playlistItems->isNotEmpty())
 <section class="bg-white py-16">
     <div class="hc-container">
         <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <div>
                 <p class="text-sm font-bold uppercase tracking-[0.22em] text-hc-primary">Konten / 内容</p>
                 <h2 class="mt-4 text-3xl font-bold tracking-tight text-hc-text sm:text-4xl">Playlist Konten</h2>
-                <p class="mt-4 max-w-2xl text-base leading-8 text-hc-softText">
-                    Konten video dan promosi dari admin akan tampil di bagian ini.
-                </p>
             </div>
 
-            <a href="{{ route('playlists.index') }}" data-hc-button-ready="1" class="inline-flex h-12 items-center justify-center rounded-full bg-hc-primary px-6 text-sm font-bold text-white shadow-soft transition hover:bg-hc-primaryDark">
-                Lihat Playlist
-            </a>
+            @if($hasMorePlaylists)
+                <a href="{{ route('playlists.index') }}" class="button">
+                    <span>Lihat Selengkapnya / 查看更多</span>
+                </a>
+            @endif
         </div>
 
         <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-            @foreach($playlists as $playlist)
-                <article class="overflow-hidden rounded-[2rem] border border-hc-line bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+            @foreach($visiblePlaylists as $playlist)
+                <article class="hc-uniform-card overflow-hidden rounded-[2rem] border border-hc-line bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
                     <a href="{{ $playlist->url }}" target="_blank" rel="noopener noreferrer" class="block">
-                        <div class="aspect-video bg-hc-bg">
+                        <div class="hc-uniform-card-media">
                             <img src="{{ $playlist->thumbnail_url }}" alt="{{ $playlist->title }}" class="h-full w-full object-cover">
                         </div>
                     </a>
 
-                    <div class="p-6">
+                    <div class="hc-uniform-card-body p-6">
                         @if($playlist->platform)
                             <p class="text-xs font-bold uppercase tracking-[0.18em] text-hc-primary">{{ $playlist->platform }}</p>
                         @endif

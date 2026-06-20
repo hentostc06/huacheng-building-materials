@@ -67,7 +67,7 @@ class WebsiteController extends Controller
             })
             ->orderByDesc('published_at')
             ->orderByDesc('created_at')
-            ->limit(3)
+            ->limit(4)
             ->get();
 
         return view('home', compact(

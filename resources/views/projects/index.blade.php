@@ -17,11 +17,11 @@
             <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
                 @foreach($projects as $project)
                     <article class="overflow-hidden rounded-[2rem] border border-hc-line bg-white shadow-sm">
-                        <div class="aspect-[4/3] bg-hc-bg">
+                        <div class="hc-uniform-card-media">
                             <img src="{{ $project->image_url }}" alt="{{ $project->title }}" class="h-full w-full object-cover">
                         </div>
 
-                        <div class="p-6">
+                        <div class="hc-uniform-card-body p-6">
                             @if($project->location)
                                 <p class="text-xs font-bold uppercase tracking-[0.18em] text-hc-primary">{{ $project->location }}</p>
                             @endif

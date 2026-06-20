@@ -16,14 +16,14 @@
         @if($posts->count())
             <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
                 @foreach($posts as $post)
-                    <article class="overflow-hidden rounded-[2rem] border border-hc-line bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+                    <article class="hc-uniform-card overflow-hidden rounded-[2rem] border border-hc-line bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
                         <a href="{{ route('blog.show', ['blogPost' => $post->slug]) }}" class="block">
-                            <div class="aspect-[4/3] bg-hc-bg">
+                            <div class="hc-uniform-card-media">
                                 <img src="{{ $post->cover_image_url }}" alt="{{ $post->title }}" class="h-full w-full object-cover">
                             </div>
                         </a>
 
-                        <div class="p-6">
+                        <div class="hc-uniform-card-body p-6">
                             <p class="text-xs font-bold uppercase tracking-[0.18em] text-hc-primary">
                                 {{ optional($post->published_at)->format('d M Y') ?: 'Blog Perusahaan' }}
                             </p>
