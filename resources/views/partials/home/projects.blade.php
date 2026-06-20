@@ -14,7 +14,7 @@
             </div>
 
             @if($hasMoreProjects)
-                <a href="{{ route('projects.index') }}" class="button">
+                <a href="{{ route('projects.index') }}" class="button hc-section-head-cta">
                     <span>Lihat Selengkapnya / 查看更多</span>
                 </a>
             @endif
@@ -45,6 +45,14 @@
                 </article>
             @endforeach
         </div>
+
+@if($hasMoreProjects)
+            <div class="hc-section-bottom-cta">
+                <a href="{{ route('projects.index') }}" class="button">
+                    <span>Lihat Selengkapnya / 查看更多</span>
+                </a>
+            </div>
+        @endif
     </div>
 </section>
 @endif

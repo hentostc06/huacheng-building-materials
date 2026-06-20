@@ -14,7 +14,7 @@
             </div>
 
             @if($hasMorePlaylists)
-                <a href="{{ route('playlists.index') }}" class="button">
+                <a href="{{ route('playlists.index') }}" class="button hc-section-head-cta">
                     <span>Lihat Selengkapnya / 查看更多</span>
                 </a>
             @endif
@@ -47,6 +47,14 @@
                 </article>
             @endforeach
         </div>
+
+@if($hasMorePlaylists)
+            <div class="hc-section-bottom-cta">
+                <a href="{{ route('playlists.index') }}" class="button">
+                    <span>Lihat Selengkapnya / 查看更多</span>
+                </a>
+            </div>
+        @endif
     </div>
 </section>
 @endif

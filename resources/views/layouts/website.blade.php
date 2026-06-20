@@ -752,6 +752,40 @@
         }
         /* END SMART HEADER ALL DEVICES - HUACHENG */
 
+    
+        /* MOBILE SECTION CTA PLACEMENT - HUACHENG */
+        @media (max-width: 639px) {
+            .hc-section-head-cta {
+                display: none !important;
+            }
+
+            .hc-section-bottom-cta {
+                display: flex !important;
+                justify-content: center !important;
+                width: 100% !important;
+                margin-top: 26px !important;
+            }
+
+            .hc-section-bottom-cta .button {
+                width: 100% !important;
+                max-width: 330px !important;
+                height: 44px !important;
+                justify-content: center !important;
+                text-align: center !important;
+            }
+        }
+
+        @media (min-width: 640px) {
+            .hc-section-head-cta {
+                display: inline-flex !important;
+            }
+
+            .hc-section-bottom-cta {
+                display: none !important;
+            }
+        }
+
+
     </style>
 
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>

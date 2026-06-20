@@ -14,7 +14,7 @@
             </div>
 
             @if($hasMoreBlogs)
-                <a href="{{ route('blog.index') }}" class="button">
+                <a href="{{ route('blog.index') }}" class="button hc-section-head-cta">
                     <span>Lihat Selengkapnya / 查看更多</span>
                 </a>
             @endif
@@ -49,6 +49,14 @@
                 </article>
             @endforeach
         </div>
+
+@if($hasMoreBlogs)
+            <div class="hc-section-bottom-cta">
+                <a href="{{ route('blog.index') }}" class="button">
+                    <span>Lihat Selengkapnya / 查看更多</span>
+                </a>
+            </div>
+        @endif
     </div>
 </section>
 @endif

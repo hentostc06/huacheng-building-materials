@@ -14,11 +14,11 @@
             </div>
 
             @if($hasMoreProducts)
-                <a href="{{ route('products.index') }}" class="button">
+                <a href="{{ route('products.index') }}" class="button hc-section-head-cta">
                     <span>Lihat Selengkapnya / 查看更多</span>
                 </a>
             @else
-                <a href="{{ route('products.index') }}" class="button">
+                <a href="{{ route('products.index') }}" class="button hc-section-head-cta">
                     <span>Buka Halaman Produk / 产品页面</span>
                 </a>
             @endif
@@ -76,6 +76,18 @@
                     </div>
                 </article>
             @endforeach
+        </div>
+
+<div class="hc-section-bottom-cta">
+            @if($hasMoreProducts)
+                <a href="{{ route('products.index') }}" class="button">
+                    <span>Lihat Selengkapnya / 查看更多</span>
+                </a>
+            @else
+                <a href="{{ route('products.index') }}" class="button">
+                    <span>Buka Halaman Produk / 产品页面</span>
+                </a>
+            @endif
         </div>
     </div>
 </section>
