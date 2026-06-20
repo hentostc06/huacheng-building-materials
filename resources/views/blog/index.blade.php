@@ -16,7 +16,7 @@
         @if($posts->count())
             <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
                 @foreach($posts as $post)
-                    <article class="hc-uniform-card overflow-hidden rounded-[2rem] border border-hc-line bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+                    <article class="hc-uniform-card overflow-hidden rounded-2xl border border-hc-line bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
                         <a href="{{ route('blog.show', ['blogPost' => $post->slug]) }}" class="block">
                             <div class="hc-uniform-card-media">
                                 <img src="{{ $post->cover_image_url }}" alt="{{ $post->title }}" class="h-full w-full object-cover">
@@ -48,7 +48,7 @@
 
             <div class="mt-10">{{ $posts->links() }}</div>
         @else
-            <div class="rounded-[2rem] border border-dashed border-hc-line bg-hc-bg p-10 text-center">
+            <div class="rounded-2xl border border-dashed border-hc-line bg-hc-bg p-10 text-center">
                 <h2 class="text-2xl font-bold text-hc-text">Belum ada blog aktif</h2>
                 <p class="mt-3 text-hc-softText">Input blog dari admin dan aktifkan statusnya.</p>
             </div>

@@ -24,7 +24,7 @@
             </div>
 
             <div class="grid gap-4 sm:grid-cols-2">
-                <div class="rounded-[2rem] border border-hc-line bg-hc-bg p-6">
+                <div class="rounded-2xl border border-hc-line bg-hc-bg p-6">
                     <p class="text-3xl font-bold text-hc-primary">01</p>
                     <h3 class="mt-4 text-lg font-bold text-hc-text">Material Modular</h3>
                     <p class="mt-3 text-sm leading-7 text-hc-softText">
@@ -35,7 +35,7 @@
                     </p>
                 </div>
 
-                <div class="rounded-[2rem] border border-hc-line bg-hc-bg p-6">
+                <div class="rounded-2xl border border-hc-line bg-hc-bg p-6">
                     <p class="text-3xl font-bold text-hc-primary">02</p>
                     <h3 class="mt-4 text-lg font-bold text-hc-text">Project Supply</h3>
                     <p class="mt-3 text-sm leading-7 text-hc-softText">
@@ -46,7 +46,7 @@
                     </p>
                 </div>
 
-                <div class="rounded-[2rem] border border-hc-line bg-hc-bg p-6">
+                <div class="rounded-2xl border border-hc-line bg-hc-bg p-6">
                     <p class="text-3xl font-bold text-hc-primary">03</p>
                     <h3 class="mt-4 text-lg font-bold text-hc-text">Custom Request</h3>
                     <p class="mt-3 text-sm leading-7 text-hc-softText">
@@ -57,7 +57,7 @@
                     </p>
                 </div>
 
-                <div class="rounded-[2rem] border border-hc-line bg-hc-bg p-6">
+                <div class="rounded-2xl border border-hc-line bg-hc-bg p-6">
                     <p class="text-3xl font-bold text-hc-primary">04</p>
                     <h3 class="mt-4 text-lg font-bold text-hc-text">Fast Response</h3>
                     <p class="mt-3 text-sm leading-7 text-hc-softText">
@@ -70,7 +70,7 @@
             </div>
         </div>
 
-        <div class="mt-12 grid grid-cols-1 gap-6 rounded-[2rem] border border-hc-line bg-white p-6 shadow-sm md:grid-cols-3">
+        <div class="mt-12 grid grid-cols-1 gap-6 rounded-2xl border border-hc-line bg-white p-6 shadow-sm md:grid-cols-3">
             <div>
                 <p class="text-sm font-bold uppercase tracking-[0.18em] text-hc-primary">Company</p>
                 <p class="mt-3 text-lg font-bold text-hc-text">Indonesia Huacheng Building Materials Co., Ltd</p>
@@ -108,25 +108,25 @@
         </div>
 
         <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
-            <div class="rounded-3xl border border-hc-line bg-white p-6 shadow-sm">
+            <div class="rounded-2xl border border-hc-line bg-white p-6 shadow-sm">
                 <h3 class="text-lg font-bold text-hc-text">Clean Board</h3>
                 <p class="mt-3 text-sm leading-6 text-hc-softText">Panel dan papan bangunan untuk kebutuhan konstruksi modern.</p>
                 <p class="mt-2 text-sm text-slate-500">洁净板材系统</p>
             </div>
 
-            <div class="rounded-3xl border border-hc-line bg-white p-6 shadow-sm">
+            <div class="rounded-2xl border border-hc-line bg-white p-6 shadow-sm">
                 <h3 class="text-lg font-bold text-hc-text">Ubin PVC & Resin</h3>
                 <p class="mt-3 text-sm leading-6 text-hc-softText">Material finishing modular yang ringan, praktis, dan efisien.</p>
                 <p class="mt-2 text-sm text-slate-500">PVC瓦 / 树脂瓦</p>
             </div>
 
-            <div class="rounded-3xl border border-hc-line bg-white p-6 shadow-sm">
+            <div class="rounded-2xl border border-hc-line bg-white p-6 shadow-sm">
                 <h3 class="text-lg font-bold text-hc-text">Portable Panel House</h3>
                 <p class="mt-3 text-sm leading-6 text-hc-softText">Solusi ruang portabel untuk mess, kantor proyek, dan bangunan sementara.</p>
                 <p class="mt-2 text-sm text-slate-500">活动板房</p>
             </div>
 
-            <div class="rounded-3xl border border-hc-line bg-white p-6 shadow-sm">
+            <div class="rounded-2xl border border-hc-line bg-white p-6 shadow-sm">
                 <h3 class="text-lg font-bold text-hc-text">Container House</h3>
                 <p class="mt-3 text-sm leading-6 text-hc-softText">Rumah kontainer bongkar pasang cepat untuk kebutuhan modular.</p>
                 <p class="mt-2 text-sm text-slate-500">快拼箱房</p>

@@ -22,7 +22,7 @@
 
         <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
             @foreach($visibleProjects as $project)
-                <article class="hc-uniform-card overflow-hidden rounded-[2rem] border border-hc-line bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+                <article class="hc-uniform-card overflow-hidden rounded-2xl border border-hc-line bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
                     <div class="hc-uniform-card-media">
                         <img src="{{ $project->image_url }}" alt="{{ $project->title }}" class="h-full w-full object-cover">
                     </div>

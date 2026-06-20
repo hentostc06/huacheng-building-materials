@@ -16,7 +16,7 @@
         @if($projects->count())
             <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
                 @foreach($projects as $project)
-                    <article class="overflow-hidden rounded-[2rem] border border-hc-line bg-white shadow-sm">
+                    <article class="overflow-hidden rounded-2xl border border-hc-line bg-white shadow-sm">
                         <div class="hc-uniform-card-media">
                             <img src="{{ $project->image_url }}" alt="{{ $project->title }}" class="h-full w-full object-cover">
                         </div>
@@ -46,7 +46,7 @@
 
             <div class="mt-10">{{ $projects->links() }}</div>
         @else
-            <div class="rounded-[2rem] border border-dashed border-hc-line bg-hc-bg p-10 text-center">
+            <div class="rounded-2xl border border-dashed border-hc-line bg-hc-bg p-10 text-center">
                 <h2 class="text-2xl font-bold text-hc-text">Belum ada proyek aktif</h2>
                 <p class="mt-3 text-hc-softText">Input proyek dari admin dan aktifkan statusnya.</p>
             </div>

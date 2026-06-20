@@ -21,7 +21,7 @@
 
 <section class="bg-white py-14">
     <div class="hc-container max-w-4xl">
-        <div class="overflow-hidden rounded-[2rem] border border-hc-line bg-hc-bg shadow-sm">
+        <div class="overflow-hidden rounded-2xl border border-hc-line bg-hc-bg shadow-sm">
             <img src="{{ $post->cover_image_url }}" alt="{{ $post->title }}" class="h-auto w-full object-cover">
         </div>
 

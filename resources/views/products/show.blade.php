@@ -11,7 +11,7 @@
 
 <section class="bg-white py-14">
     <div class="hc-container hc-grid-2 items-start">
-        <div class="hc-card self-start overflow-hidden rounded-[2rem] border border-hc-line bg-white shadow-soft">
+        <div class="hc-card self-start overflow-hidden rounded-2xl border border-hc-line bg-white shadow-soft">
             <img
                 src="{{ $product->image_url }}"
                 alt="{{ $product->name }}"
@@ -37,7 +37,7 @@
             @endif
 
             @if($product->short_description || $product->short_description_zh)
-                <div class="mt-7 rounded-[2rem] border border-hc-line bg-hc-bg p-6">
+                <div class="mt-7 rounded-2xl border border-hc-line bg-hc-bg p-6">
                     @if($product->short_description)
                         <p class="text-base leading-8 text-hc-softText">
                             {{ $product->short_description }}
@@ -53,7 +53,7 @@
             @endif
 
             @if($product->price && (float) $product->price > 0)
-                <div class="mt-6 rounded-[2rem] border border-hc-line bg-white p-6 shadow-sm">
+                <div class="mt-6 rounded-2xl border border-hc-line bg-white p-6 shadow-sm">
                     <p class="text-sm font-semibold text-slate-500">Estimasi Harga</p>
                     <p class="mt-1 text-3xl font-bold text-hc-text">
                         Rp {{ number_format($product->price, 0, ',', '.') }}
@@ -76,7 +76,7 @@
 
 <section class="bg-hc-bg py-16">
     <div class="hc-container grid grid-cols-1 gap-8 lg:grid-cols-2">
-        <div class="rounded-[2rem] border border-hc-line bg-white p-8 shadow-sm">
+        <div class="rounded-2xl border border-hc-line bg-white p-8 shadow-sm">
             <p class="text-sm font-bold uppercase tracking-[0.18em] text-hc-primary">Deskripsi Produk</p>
             <h2 class="mt-3 text-2xl font-bold text-hc-text">Informasi Produk</h2>
 
@@ -97,7 +97,7 @@
             </div>
         </div>
 
-        <div class="rounded-[2rem] border border-hc-line bg-white p-8 shadow-sm">
+        <div class="rounded-2xl border border-hc-line bg-white p-8 shadow-sm">
             <p class="text-sm font-bold uppercase tracking-[0.18em] text-hc-primary">Spesifikasi / 产品规格</p>
             <h2 class="mt-3 text-2xl font-bold text-hc-text">Detail Spesifikasi</h2>
 
@@ -126,7 +126,7 @@
 
 <section class="bg-white py-16">
     <div class="hc-container">
-        <div class="rounded-[2rem] bg-hc-primary p-8 text-white sm:p-10 lg:p-12">
+        <div class="rounded-2xl bg-hc-primary p-8 text-white sm:p-10 lg:p-12">
             <div class="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
                 <div>
                     <p class="text-sm font-bold uppercase tracking-[0.22em] text-white/80">Need Quotation / 获取报价</p>

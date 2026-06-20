@@ -20,7 +20,7 @@
 
 <section class="bg-white py-8 sm:py-12">
     <div class="hc-container">
-        <form method="GET" class="grid grid-cols-1 gap-3 rounded-[1.5rem] border border-hc-line bg-white p-4 shadow-soft sm:gap-4 sm:rounded-[2rem] sm:p-5 lg:grid-cols-[minmax(0,1fr)_260px_auto]">
+        <form method="GET" class="grid grid-cols-1 gap-3 rounded-[1.5rem] border border-hc-line bg-white p-4 shadow-soft sm:gap-4 sm:rounded-2xl sm:p-5 lg:grid-cols-[minmax(0,1fr)_260px_auto]">
             <input
                 type="text"
                 name="search"
@@ -49,7 +49,7 @@
         @if($products->count())
             <div class="hc-product-grid mt-8 sm:mt-10">
                 @foreach($products as $product)
-                    <article class="hc-card group overflow-hidden rounded-[1.6rem] border border-hc-line bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft sm:rounded-[2rem]">
+                    <article class="hc-card group overflow-hidden rounded-[1.6rem] border border-hc-line bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft sm:rounded-2xl">
                         <a href="{{ route('products.show', $product) }}" class="block">
                             <div class="hc-product-image-wrap">
                                 <img
@@ -118,7 +118,7 @@
                 {{ $products->links() }}
             </div>
         @else
-            <div class="mt-10 rounded-[2rem] border border-dashed border-hc-line bg-hc-bg p-10 text-center">
+            <div class="mt-10 rounded-2xl border border-dashed border-hc-line bg-hc-bg p-10 text-center">
                 <h3 class="text-2xl font-bold text-hc-text">Belum ada produk</h3>
                 <p class="mt-3 text-hc-softText">
                     Produk belum diinput oleh admin.<br>

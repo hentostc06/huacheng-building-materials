@@ -26,7 +26,7 @@
 
         <div class="hc-product-grid mt-10">
             @foreach($visibleProducts as $product)
-                <article class="hc-uniform-card hc-card group overflow-hidden rounded-[2rem] border border-hc-line bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft">
+                <article class="hc-uniform-card hc-card group overflow-hidden rounded-2xl border border-hc-line bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-soft">
                     <a href="{{ route('products.show', $product) }}" class="block">
                         <div class="hc-uniform-card-media">
                             <img
@@ -94,7 +94,7 @@
 @else
 <section class="hc-section bg-white">
     <div class="hc-container">
-        <div class="rounded-[2rem] border border-dashed border-hc-line bg-hc-bg p-10 text-center">
+        <div class="rounded-2xl border border-dashed border-hc-line bg-hc-bg p-10 text-center">
             <h3 class="text-2xl font-bold text-hc-text">Belum ada produk</h3>
             <p class="mt-3 text-hc-softText">
                 Produk akan ditampilkan setelah admin menginput data melalui panel Filament.<br>

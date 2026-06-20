@@ -22,7 +22,7 @@
 
         <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
             @foreach($visiblePlaylists as $playlist)
-                <article class="hc-uniform-card overflow-hidden rounded-[2rem] border border-hc-line bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+                <article class="hc-uniform-card overflow-hidden rounded-2xl border border-hc-line bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
                     <a href="{{ $playlist->url }}" target="_blank" rel="noopener noreferrer" class="block">
                         <div class="hc-uniform-card-media">
                             <img src="{{ $playlist->thumbnail_url }}" alt="{{ $playlist->title }}" class="h-full w-full object-cover">
