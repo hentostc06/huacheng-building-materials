@@ -27,9 +27,9 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
-            ->brandName('Huacheng Admin')
+            ->brandName('Huacheng')
             ->brandLogo(asset('images/Logo.png'))
-            ->brandLogoHeight('2.75rem')
+            ->brandLogoHeight('3rem')
             ->favicon(asset('favicon.png'))
             ->colors([
                 'primary' => Color::Sky,
@@ -44,6 +44,10 @@ class AdminPanelProvider extends PanelProvider
                 NavigationGroup::make('Katalog Produk')
                     ->collapsible(false),
             ])
+            ->renderHook(
+                'panels::head.end',
+                fn (): string => view('filament.admin-brand')->render()
+            )
             ->renderHook(
                 'panels::body.start',
                 fn (): string => view('partials.huacheng-loader')->render()
