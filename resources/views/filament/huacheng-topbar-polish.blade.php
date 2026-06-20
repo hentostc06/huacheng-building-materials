@@ -1,3 +1,4 @@
+@unless(request()->is('admin/login'))
 <style>
     /* HUACHENG TOPBAR POLISH ONLY */
 
@@ -267,3 +268,4 @@
         setTimeout(bootTopbarPolish, 800);
     })();
 </script>
+@endunless

@@ -56,6 +56,10 @@ class AdminPanelProvider extends PanelProvider
                 'panels::head.end',
                 fn (): string => view('filament.huacheng-topbar-polish')->render()
             )
+            ->renderHook(
+                'panels::head.end',
+                fn (): string => view('filament.huacheng-admin-login-theme')->render()
+            )
             ->discoverResources(
                 in: app_path('Filament/Resources'),
                 for: 'App\\Filament\\Resources'
