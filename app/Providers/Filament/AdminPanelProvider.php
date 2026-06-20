@@ -52,6 +52,10 @@ class AdminPanelProvider extends PanelProvider
                 'panels::body.start',
                 fn (): string => view('partials.huacheng-loader')->render()
             )
+            ->renderHook(
+                'panels::head.end',
+                fn (): string => view('filament.huacheng-topbar-polish')->render()
+            )
             ->discoverResources(
                 in: app_path('Filament/Resources'),
                 for: 'App\\Filament\\Resources'
