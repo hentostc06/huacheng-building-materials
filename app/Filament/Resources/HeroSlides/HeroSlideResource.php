@@ -21,11 +21,11 @@ class HeroSlideResource extends Resource
 {
     protected static ?string $model = HeroSlide::class;
 
-    protected static ?string $navigationLabel = 'Hero Carousel';
+    protected static ?string $navigationLabel = 'Gambar Bergeser';
 
-    protected static ?string $modelLabel = 'Hero Carousel';
+    protected static ?string $modelLabel = 'Gambar Bergeser';
 
-    protected static ?string $pluralModelLabel = 'Hero Carousel';
+    protected static ?string $pluralModelLabel = 'Gambar Bergeser';
 
     protected static string | \UnitEnum | null $navigationGroup = 'Landing Page';
 

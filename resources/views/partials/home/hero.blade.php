@@ -39,14 +39,20 @@
         @endif
     </div>
 
-    {{-- OVERLAY: KIRI PUTIH UNTUK TEKS, KANAN TETAP KELIHATAN --}}
-    <div class="absolute inset-0 -z-10 bg-gradient-to-r from-white via-white/88 to-white/30"></div>
+    {{-- OVERLAY: KIRI TETAP AMAN UNTUK TEKS, KANAN LEBIH JELAS --}}
+    <div
+        class="absolute inset-0 -z-10"
+        style="background: linear-gradient(90deg, rgba(255,255,255,.94) 0%, rgba(255,255,255,.86) 36%, rgba(255,255,255,.50) 55%, rgba(255,255,255,.12) 76%, rgba(255,255,255,0) 100%);"
+    ></div>
 
-    {{-- OVERLAY KANAN TIPIS BIAR GAMBAR TIDAK TERLALU GELAP --}}
-    <div class="absolute inset-y-0 right-0 -z-10 w-[55%] bg-white/18"></div>
+    {{-- OVERLAY KANAN DIBUAT SANGAT TIPIS AGAR GAMBAR TERLIHAT --}}
+    <div class="absolute inset-y-0 right-0 -z-10 w-[55%] bg-white/5"></div>
 
-    {{-- FADE BAWAH BIAR NYAMBUNG KE SECTION BERIKUTNYA --}}
-    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-transparent to-white"></div>
+    {{-- FADE BAWAH HANYA DI BAGIAN BAWAH, BUKAN MENUTUP SELURUH HERO --}}
+    <div
+        class="absolute inset-x-0 bottom-0 -z-10 h-44"
+        style="background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.88) 100%);"
+    ></div>
 
     <div class="hc-container relative flex min-h-[720px] items-center py-24">
         <div class="max-w-3xl">

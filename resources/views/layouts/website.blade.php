@@ -977,9 +977,43 @@
             @yield('content')
         </main>
 
-        <footer class="mt-16 border-t border-hc-line bg-hc-bg">
-            <div class="hc-container grid gap-8 py-12 sm:grid-cols-2 lg:grid-cols-4">
-                <div class="lg:col-span-2">
+        <section class="border-y border-hc-line bg-white">
+            <div class="hc-container py-8 text-center">
+                <p class="text-xs font-black uppercase tracking-[0.28em] text-hc-primary">
+                    Follow Us On / 关注我们
+                </p>
+
+                <div class="mt-5 flex items-center justify-center gap-4">
+                    <a
+                        href="https://www.tiktok.com/@huacheng_buildmaterials?_r=1&amp;_t=ZS-97KR01PsFIu"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex h-12 w-12 items-center justify-center rounded-full border border-hc-line bg-[#F8FBFD] text-hc-primary shadow-sm transition hover:border-hc-primary hover:bg-hc-primary hover:text-white"
+                        aria-label="TikTok Huacheng Building Materials"
+                    >
+                        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M15.6 3c.25 2.15 1.45 3.55 3.4 4.05v3.1a7.1 7.1 0 0 1-3.35-.95v5.95c0 3.45-2.25 5.85-5.55 5.85A5.05 5.05 0 0 1 5 15.95c0-3.15 2.5-5.35 5.75-5.05v3.2c-1.45-.2-2.55.55-2.55 1.85 0 1.15.82 1.95 1.95 1.95 1.35 0 2.1-.9 2.1-2.55V3h3.35Z"/>
+                        </svg>
+                    </a>
+
+                    <a
+                        href="https://www.facebook.com/p/Huacheng-Buildmaterial-61590723443891/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex h-12 w-12 items-center justify-center rounded-full border border-hc-line bg-[#F8FBFD] text-hc-primary shadow-sm transition hover:border-hc-primary hover:bg-hc-primary hover:text-white"
+                        aria-label="Facebook Huacheng Buildmaterial"
+                    >
+                        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M14.2 8.15V6.9c0-.62.42-.76.72-.76h1.83V3.1L14.23 3c-2.8 0-3.44 2.1-3.44 3.44v1.71H8.75v3.25h2.04V21h3.41v-9.6h2.54l.34-3.25H14.2Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="border-t border-hc-line bg-hc-bg">
+            <div class="hc-container grid gap-8 py-12 sm:grid-cols-2 lg:grid-cols-[1.25fr_0.42fr_0.72fr_0.9fr] lg:gap-12" style="max-width: 1280px;">
+                <div class="max-w-xl">
                     <img src="{{ asset('images/huacheng-logo.png') }}" alt="Huacheng Building Materials" class="h-14 w-auto">
                     <p class="mt-5 max-w-xl text-sm leading-7 text-hc-softText">
                         <span class="font-semibold text-hc-text">Indonesia Huacheng Building Materials Co., Ltd</span><br>
@@ -1008,6 +1042,16 @@
                         <p>Domain: huacheng.co.id</p>
                     </div>
                 </div>
+
+                <div>
+                    <p class="font-bold text-hc-text">Alamat Gudang</p>
+                    <div class="mt-4 space-y-3 text-sm leading-7 text-hc-softText">
+                        <p>Pergudangan Teluknaga</p>
+                        <p>Gudang No. H1A</p>
+                        <p>Kali Baru, Kabupaten Tangerang</p>
+                        <p>Banten, Indonesia</p>
+                    </div>
+</div>
             </div>
 
             <div class="border-t border-hc-line px-4 py-6 text-center text-xs text-slate-500">
