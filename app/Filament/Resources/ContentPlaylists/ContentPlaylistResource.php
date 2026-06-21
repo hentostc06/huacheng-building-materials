@@ -47,7 +47,9 @@ class ContentPlaylistResource extends Resource
                 TextInput::make('title')
                     ->label('Judul Konten')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->live(onBlur: true)
+                    ->afterStateUpdated(fn (?string $state, callable $set) => $set('title_zh', app(\App\Services\GoogleTranslateService::class)->translate($state))),
 
                 TextInput::make('title_zh')
                     ->label('Judul China')
@@ -77,6 +79,8 @@ class ContentPlaylistResource extends Resource
                 Textarea::make('description')
                     ->label('Deskripsi')
                     ->rows(4)
+                    ->live(onBlur: true)
+                    ->afterStateUpdated(fn (?string $state, callable $set) => $set('description_zh', app(\App\Services\GoogleTranslateService::class)->translate($state)))
                     ->columnSpanFull(),
 
                 Textarea::make('description_zh')

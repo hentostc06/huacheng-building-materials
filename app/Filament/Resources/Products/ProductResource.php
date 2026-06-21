@@ -67,8 +67,8 @@ class ProductResource extends Resource
 
                 TextInput::make('name_zh')
                     ->label('Nama China')
-                    ->placeholder('otomatis')
-                    ->readOnly()
+                    ->placeholder('otomatis dari Google Translate')
+                    ->helperText('Bisa diedit manual. Kosongkan field ini lalu blur Nama Produk untuk translate ulang.')
                     ->dehydrated(true),
 
                 TextInput::make('slug')
@@ -86,7 +86,7 @@ class ProductResource extends Resource
 
                 Textarea::make('short_description_zh')
                     ->label('Deskripsi Singkat China')
-                    ->readOnly()
+                    ->helperText('Bisa diedit manual. Kosongkan field ini lalu blur Deskripsi Singkat untuk translate ulang.')
                     ->dehydrated(true)
                     ->rows(2)
                     ->columnSpanFull(),
@@ -100,7 +100,7 @@ class ProductResource extends Resource
 
                 Textarea::make('description_zh')
                     ->label('Deskripsi Produk China')
-                    ->readOnly()
+                    ->helperText('Bisa diedit manual. Kosongkan field ini lalu blur Deskripsi Produk untuk translate ulang.')
                     ->dehydrated(true)
                     ->rows(5)
                     ->columnSpanFull(),
@@ -115,7 +115,7 @@ class ProductResource extends Resource
 
                 Textarea::make('specification_zh')
                     ->label('Spesifikasi China')
-                    ->readOnly()
+                    ->helperText('Bisa diedit manual. Kosongkan field ini lalu blur Spesifikasi untuk translate ulang.')
                     ->dehydrated(true)
                     ->rows(5)
                     ->columnSpanFull(),

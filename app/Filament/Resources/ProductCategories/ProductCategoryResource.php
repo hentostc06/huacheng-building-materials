@@ -51,8 +51,8 @@ class ProductCategoryResource extends Resource
 
                 TextInput::make('name_zh')
                     ->label('Nama China')
-                    ->placeholder('otomatis')
-                    ->readOnly()
+                    ->placeholder('otomatis dari Google Translate')
+                    ->helperText('Bisa diedit manual. Kosongkan field ini lalu blur Nama Kategori untuk translate ulang.')
                     ->dehydrated(true),
 
                 TextInput::make('slug')

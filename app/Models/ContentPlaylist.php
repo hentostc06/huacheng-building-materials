@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\AutoTranslatesZhFields;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class ContentPlaylist extends Model
 {
+    use AutoTranslatesZhFields;
+
     protected $fillable = [
         'title',
         'title_zh',
