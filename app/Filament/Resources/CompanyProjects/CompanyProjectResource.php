@@ -19,6 +19,12 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
+use App\Services\AdminTranslateService;
+use Filament\Actions\Action;
+use Filament\Notifications\Notification;
+use Filament\Schemas\Components\Actions;
+use Filament\Schemas\Components\Utilities\Get;
+use Filament\Schemas\Components\Utilities\Set;
 
 class CompanyProjectResource extends Resource
 {
@@ -43,6 +49,68 @@ class CompanyProjectResource extends Resource
     {
         return $schema
             ->components([
+
+                Actions::make([
+                    Action::make('translateCompanyProjectToChinese')
+                        ->label('Terjemahkan ke Mandarin')
+                        ->icon('heroicon-o-language')
+                        ->color('info')
+                        ->action(function (Get $schemaGet, Set $schemaSet): void {
+                            $service = app(AdminTranslateService::class);
+
+                            $pairs = [
+                                'title' => 'title_zh',
+                                'description' => 'description_zh',
+                            ];
+
+                            $filled = 0;
+                            $translated = 0;
+
+                            foreach ($pairs as $sourceField => $targetField) {
+                                $sourceText = trim((string) $schemaGet($sourceField));
+
+                                if ($sourceText === '') {
+                                    continue;
+                                }
+
+                                $filled++;
+
+                                $result = $service->translate($sourceText);
+
+                                if ($result) {
+                                    $schemaSet($targetField, $result);
+                                    $translated++;
+                                }
+                            }
+
+                            if ($filled === 0) {
+                                Notification::make()
+                                    ->title('Belum ada teks Indonesia')
+                                    ->body('Isi Judul Proyek atau Deskripsi terlebih dahulu.')
+                                    ->warning()
+                                    ->send();
+
+                                return;
+                            }
+
+                            if ($translated === 0) {
+                                Notification::make()
+                                    ->title('Translate gagal')
+                                    ->body('Isi field China secara manual dulu.')
+                                    ->danger()
+                                    ->send();
+
+                                return;
+                            }
+
+                            Notification::make()
+                                ->title('Translate berhasil')
+                                ->body('Field China proyek berhasil diisi. Silakan cek dan koreksi sebelum Save.')
+                                ->success()
+                                ->send();
+                        }),
+                ])->columnSpanFull(),
+
 
                 TextInput::make('title')
                     ->label('Judul Proyek')

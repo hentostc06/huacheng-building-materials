@@ -19,6 +19,12 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
+use App\Services\AdminTranslateService;
+use Filament\Actions\Action;
+use Filament\Notifications\Notification;
+use Filament\Schemas\Components\Actions;
+use Filament\Schemas\Components\Utilities\Get;
+use Filament\Schemas\Components\Utilities\Set;
 
 class ProductResource extends Resource
 {
@@ -43,6 +49,70 @@ class ProductResource extends Resource
     {
         return $schema
             ->components([
+
+                Actions::make([
+                    Action::make('translateProductToChinese')
+                        ->label('Terjemahkan ke Mandarin')
+                        ->icon('heroicon-o-language')
+                        ->color('info')
+                        ->action(function (Get $schemaGet, Set $schemaSet): void {
+                            $service = app(AdminTranslateService::class);
+
+                            $pairs = [
+                                'name' => 'name_zh',
+                                'short_description' => 'short_description_zh',
+                                'description' => 'description_zh',
+                                'specification' => 'specification_zh',
+                            ];
+
+                            $filled = 0;
+                            $translated = 0;
+
+                            foreach ($pairs as $sourceField => $targetField) {
+                                $sourceText = trim((string) $schemaGet($sourceField));
+
+                                if ($sourceText === '') {
+                                    continue;
+                                }
+
+                                $filled++;
+
+                                $result = $service->translate($sourceText);
+
+                                if ($result) {
+                                    $schemaSet($targetField, $result);
+                                    $translated++;
+                                }
+                            }
+
+                            if ($filled === 0) {
+                                Notification::make()
+                                    ->title('Belum ada teks Indonesia')
+                                    ->body('Isi Nama Produk, Deskripsi Singkat, Deskripsi Produk, atau Spesifikasi terlebih dahulu.')
+                                    ->warning()
+                                    ->send();
+
+                                return;
+                            }
+
+                            if ($translated === 0) {
+                                Notification::make()
+                                    ->title('Translate gagal')
+                                    ->body('Isi field China secara manual dulu.')
+                                    ->danger()
+                                    ->send();
+
+                                return;
+                            }
+
+                            Notification::make()
+                                ->title('Translate berhasil')
+                                ->body('Field China produk berhasil diisi. Silakan cek dan koreksi sebelum Save.')
+                                ->success()
+                                ->send();
+                        }),
+                ])->columnSpanFull(),
+
                 Select::make('product_category_id')
                     ->label('Kategori Produk')
                     ->relationship('category', 'name')
@@ -67,7 +137,7 @@ class ProductResource extends Resource
 
                 TextInput::make('name_zh')
                     ->label('Nama China')
-                    ->placeholder('otomatis dari Google Translate')
+                    ->placeholder('isi otomatis setelah klik tombol translate')
                     ->helperText('Bisa diedit manual. Kosongkan field ini lalu blur Nama Produk untuk translate ulang.')
                     ->dehydrated(true),
 

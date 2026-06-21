@@ -14,6 +14,12 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
+use App\Services\AdminTranslateService;
+use Filament\Actions\Action;
+use Filament\Notifications\Notification;
+use Filament\Schemas\Components\Actions;
+use Filament\Schemas\Components\Utilities\Get;
+use Filament\Schemas\Components\Utilities\Set;
 
 class ProductCategoryResource extends Resource
 {
@@ -38,6 +44,47 @@ class ProductCategoryResource extends Resource
     {
         return $schema
             ->components([
+
+                Actions::make([
+                    Action::make('translateProductCategoryToChinese')
+                        ->label('Terjemahkan ke Mandarin')
+                        ->icon('heroicon-o-language')
+                        ->color('info')
+                        ->action(function (Get $schemaGet, Set $schemaSet): void {
+                            $sourceText = trim((string) $schemaGet('name'));
+
+                            if ($sourceText === '') {
+                                Notification::make()
+                                    ->title('Belum ada nama kategori')
+                                    ->body('Isi Nama Kategori terlebih dahulu.')
+                                    ->warning()
+                                    ->send();
+
+                                return;
+                            }
+
+                            $result = app(AdminTranslateService::class)->translate($sourceText);
+
+                            if (! $result) {
+                                Notification::make()
+                                    ->title('Translate gagal')
+                                    ->body('Isi Nama China secara manual dulu.')
+                                    ->danger()
+                                    ->send();
+
+                                return;
+                            }
+
+                            $schemaSet('name_zh', $result);
+
+                            Notification::make()
+                                ->title('Translate berhasil')
+                                ->body('Nama China berhasil diisi. Silakan cek dan koreksi sebelum Save.')
+                                ->success()
+                                ->send();
+                        }),
+                ])->columnSpanFull(),
+
                 TextInput::make('name')
                     ->label('Nama Kategori')
                     ->placeholder('contoh: Dinding')
@@ -51,7 +98,7 @@ class ProductCategoryResource extends Resource
 
                 TextInput::make('name_zh')
                     ->label('Nama China')
-                    ->placeholder('otomatis dari Google Translate')
+                    ->placeholder('isi otomatis setelah klik tombol translate')
                     ->helperText('Bisa diedit manual. Kosongkan field ini lalu blur Nama Kategori untuk translate ulang.')
                     ->dehydrated(true),
 
