@@ -27,3 +27,37 @@ if (file_exists(__DIR__ . '/auth.php')) {
 if (file_exists(__DIR__ . '/settings.php')) {
     require __DIR__ . '/settings.php';
 }
+
+Route::get('/robots.txt', function () {
+    return response(
+        "User-agent: *\nAllow: /\nSitemap: https://huacheng.co.id/sitemap.xml\n",
+        200,
+        ['Content-Type' => 'text/plain']
+    );
+});
+
+Route::get('/sitemap.xml', function () {
+    $urls = [
+        url('/'),
+        url('/produk'),
+        url('/proyek'),
+        url('/blog'),
+        url('/playlist'),
+        url('/kontak'),
+    ];
+
+    $xml = '<?xml version="1.0" encoding="UTF-8"?>';
+    $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+
+    foreach ($urls as $url) {
+        $xml .= '<url>';
+        $xml .= '<loc>' . e($url) . '</loc>';
+        $xml .= '<changefreq>weekly</changefreq>';
+        $xml .= '<priority>0.8</priority>';
+        $xml .= '</url>';
+    }
+
+    $xml .= '</urlset>';
+
+    return response($xml, 200, ['Content-Type' => 'application/xml']);
+});
